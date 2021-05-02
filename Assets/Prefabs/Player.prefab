@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4740459855075157369}
   - component: {fileID: 3247800110818866381}
-  - component: {fileID: 4651304171665680726}
   m_Layer: 0
   m_Name: Hand Camera
   m_TagString: Untagged
@@ -107,14 +106,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &4651304171665680726
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7809670592736867129}
-  m_Enabled: 1
 --- !u!1 &7931538607781627919
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +367,7 @@ GameObject:
   - component: {fileID: 8185013034966836565}
   - component: {fileID: 1376954072}
   - component: {fileID: 1563405067}
+  - component: {fileID: 1615405957}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -443,3 +435,29 @@ MonoBehaviour:
   projectilePrefab: {fileID: 987702946436969229, guid: bf9d74d2bef21c334b2259ff129154ae, type: 3}
   fireFrom: {fileID: 521055739}
   fireForce: 25000
+--- !u!114 &1615405957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185013034966836567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780fe7b9966b388438df8eb48b128a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 7931538607920979912}
+  lookHorizontalSensitivity: 1
+  lookVerticalSensitivity: 1
+  minimumPitch: -89.9
+  maximumPitch: 89.9
+  jumpForce: 300
+  jumpInputBufferTime: 0.25
+  _jumpInput: 0
+  _jumpTimeSinceInput: 0
+  forwardSpeed: 5
+  backSpeed: 3
+  _inputVector: {x: 0, y: 0}
+  _grounded: 0
+  body: {fileID: 1376954072}
