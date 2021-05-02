@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class FpsController : MonoBehaviour
 {
+    public Rigidbody body;
+
     [Header("Camera Settings")]
     public Camera cam;
     public float lookHorizontalSensitivity = 1.0f;
     public float lookVerticalSensitivity = 1.0f;
     public float minimumPitch = -89.9f;
     public float maximumPitch = 89.9f;
-    private float _lookYaw;
-    private float _lookPitch;
 
     [Header("Jump Settings")]
     public float jumpForce = 300.0f;
     public float jumpInputBufferTime = 0.25f;
-    [SerializeField]
-    private bool _jumpInput = false;
-    [SerializeField]
-    private float _jumpTimeSinceInput = 0.0f;
 
     [Header("Movement Settings")]
     [Range(0.1f, 15.0f)]
@@ -27,13 +23,13 @@ public class FpsController : MonoBehaviour
     [Range(0.1f, 15.0f)]
     public float backSpeed = 3.0f;
 
-
-    [SerializeField]
     private Vector2 _inputVector = Vector2.zero;
-    [SerializeField]
+    private bool _jumpInput = false;
+    private float _jumpTimeSinceInput = 0.0f;
     private bool _grounded = false;
 
-    public Rigidbody body;
+    private float _lookYaw;
+    private float _lookPitch;
 
     void Reset()
     {
