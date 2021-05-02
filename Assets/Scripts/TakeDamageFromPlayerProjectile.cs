@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class TakeDamageFromPlayerProjectile : MonoBehaviour
 {
-    public float health = 25.0f;
+    public int health = 25;
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag(Tags.PLAYER_PROJECTILE))
         {
-            float damage = collision.relativeVelocity.magnitude;
+            var damage = Mathf.CeilToInt(collision.relativeVelocity.magnitude);
             health -= damage;
 
             if (health <= 0)
