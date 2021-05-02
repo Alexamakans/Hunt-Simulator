@@ -27,7 +27,7 @@ public class FpsCamera : MonoBehaviour
         float deltaPitch = -Input.GetAxisRaw("Mouse Y") * lookPitchSensitivity * _lookSensitivityScale;
 
         _yaw += deltaYaw;
-        _yaw = WrapAroundAngle(_yaw);
+        _yaw = WrapAroundAngleDegrees(_yaw);
 
         _pitch += deltaPitch;
         _pitch = ClampPitch(_pitch);
@@ -35,15 +35,15 @@ public class FpsCamera : MonoBehaviour
         transform.forward = Quaternion.Euler(_pitch, _yaw, 0.0f) * Vector3.forward;
     }
 
-    private float WrapAroundAngle(float angle)
+    private float WrapAroundAngleDegrees(float angle)
     {
         if (angle > Mathf.PI)
         {
-            return angle - Mathf.PI * 2.0f;
+            return angle - 360.0f;
         }
         else if (angle < -Mathf.PI)
         {
-            return angle + Mathf.PI * 2.0f;
+            return angle + 360.0f;
         }
 
         return angle;
