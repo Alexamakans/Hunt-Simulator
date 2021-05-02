@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DestroyAfter : MonoBehaviour
+public class DestroyAfterSeconds : MonoBehaviour
 {
     public float seconds = 5;
 

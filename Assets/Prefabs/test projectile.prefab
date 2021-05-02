@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 4932140255589701827}
   - component: {fileID: 4894520488067264138}
   - component: {fileID: 5359388339388433603}
-  - component: {fileID: 7704719620191997317}
+  - component: {fileID: -3092651688791280644}
+  - component: {fileID: -847536856844304372}
   m_Layer: 0
   m_Name: test projectile
   m_TagString: Untagged
@@ -114,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7704719620191997317
+--- !u!114 &-3092651688791280644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,3 +128,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seconds: 5
+--- !u!114 &-847536856844304372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987702946436969229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a93dd5976682fb4f9f308355d763b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
+  impactOnAveragePoint: 1
