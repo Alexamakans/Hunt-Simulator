@@ -24,9 +24,9 @@ public class FpsController : MonoBehaviour
     public float backSpeed = 3f;
 
     private Vector2 _inputVector = Vector2.zero;
-    private bool _jumpInput = false;
-    private float _jumpTimeSinceInput = 0.0f;
-    private bool _grounded = false;
+    private bool isJumpQueued => _jumpTimeSinceInput < jumpInputBufferTime;
+    private float _jumpTimeSinceInput;
+    private bool _isGrounded = false;
 
     private float _lookYaw;
     private float _lookPitch;
@@ -42,6 +42,7 @@ public class FpsController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         _lookYaw = transform.eulerAngles.y;
         _lookPitch = cam.transform.eulerAngles.x;
+        _jumpTimeSinceInput = jumpInputBufferTime;
     }
 
     void Update()
@@ -52,32 +53,20 @@ public class FpsController : MonoBehaviour
 
     void FixedUpdate()
     {
-        MoveLogic();
-        JumpLogic();
+        Walk();
+
+        if (isJumpQueued && _isGrounded)
+        {
+            _jumpTimeSinceInput = jumpInputBufferTime;
+            Jump();
+        }
 
         UpdateGroundedState();
     }
 
-    void ApplyDirectionalSpeedMultipliers(ref Vector3 vector)
-    {
-        if (_inputVector.y < 0.0f)
-        {
-            vector = vector.normalized * backSpeed;
-        }
-        else
-        {
-            vector = vector.normalized * forwardSpeed;
-        }
-    }
-
-    Vector3 GetMovementVector()
-    {
-        return transform.TransformVector(new Vector3(_inputVector.x, 0.0f, _inputVector.y));
-    }
-
     void Move(Vector3 displacement)
     {
-        transform.position += displacement;
+        body.position += displacement;
     }
 
     void Look()
@@ -98,53 +87,43 @@ public class FpsController : MonoBehaviour
     {
         _inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        if (_jumpTimeSinceInput >= jumpInputBufferTime)
-        {
-            _jumpInput = Input.GetButtonDown("Jump");
-            if (_jumpInput)
-            {
-                _jumpTimeSinceInput = 0.0f;
-            }
-        }
-        else
+        if (isJumpQueued)
         {
             _jumpTimeSinceInput += Time.deltaTime;
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
             _jumpTimeSinceInput = 0f;
         }
     }
 
     void UpdateGroundedState()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo)
-        && body.velocity.y < 0.01f
-        && hitInfo.distance <= 2.0f / 2.0f)
+        if (body.velocity.y < 0.01f && Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo))
         {
-            _grounded = true;
+            _isGrounded = true;
         }
         else
         {
-            _grounded = false;
+            _isGrounded = false;
         }
     }
 
-    void MoveLogic()
+    void Walk()
     {
-        ApplyDirectionalSpeedMultipliers(ref moveVector);
         var moveVector = transform.TransformVector(new Vector3(_inputVector.x, 0f, _inputVector.y));
+
+        var isMovingBackwards = _inputVector.y < 0f;
+        moveVector = moveVector.normalized * (isMovingBackwards ? backSpeed : forwardSpeed);
+
         Move(moveVector * Time.fixedDeltaTime);
     }
 
-    void JumpLogic()
+    void Jump()
     {
-        if (_jumpInput && _grounded)
-        {
-            _jumpInput = false;
-            _jumpTimeSinceInput = jumpInputBufferTime;
-
-            Vector3 keepVelocities = Vector3.right + Vector3.forward;
-            body.velocity = Vector3.Scale(body.velocity, keepVelocities);
-            body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
+        body.velocity = new Vector3(body.velocity.x, 0f, body.velocity.z);
+        body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
     float WrapAroundAngleDegrees(float angle)
