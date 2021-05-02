@@ -122,16 +122,15 @@ public class FpsController : MonoBehaviour
 
     void UpdateGroundedState()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo))
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo)
+        && body.velocity.y < 0.01f
+        && hitInfo.distance <= 2.0f / 2.0f)
         {
-            if (body.velocity.y < 0.01f && hitInfo.distance <= 2.0f / 2.0f)
-            {
-                _grounded = true;
-            }
-            else
-            {
-                _grounded = false;
-            }
+            _grounded = true;
+        }
+        else
+        {
+            _grounded = false;
         }
     }
 
