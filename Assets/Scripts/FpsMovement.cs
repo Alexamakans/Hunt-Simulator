@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FpsMovement : MonoBehaviour
 {
+    public Rigidbody body;
+
     [Range(0.1f, 15.0f)]
     public float forwardSpeed = 1.0f;
     [Range(0.1f, 15.0f)]
@@ -19,16 +21,12 @@ public class FpsMovement : MonoBehaviour
     private float _jumpTimeSinceInput = 0.0f;
     [SerializeField]
     private float _jumpInputBufferTime = 0.25f;
-
     [SerializeField]
     private bool _grounded = false;
 
-    [SerializeField]
-    private Rigidbody _rigidbody;
-
-    void Start()
+    void Reset()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        body = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -63,13 +61,13 @@ public class FpsMovement : MonoBehaviour
             _jumpTimeSinceInput = _jumpInputBufferTime;
 
             Vector3 keepVelocities = Vector3.right + Vector3.forward;
-            _rigidbody.velocity = Vector3.Scale(_rigidbody.velocity, keepVelocities);
-            _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            body.velocity = Vector3.Scale(body.velocity, keepVelocities);
+            body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo))
         {
-            if (_rigidbody.velocity.y < 0.01f && hitInfo.distance <= 2.0f / 2.0f)
+            if (body.velocity.y < 0.01f && hitInfo.distance <= 2.0f / 2.0f)
             {
                 _grounded = true;
             }

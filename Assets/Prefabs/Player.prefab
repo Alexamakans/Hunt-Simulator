@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8185013034966836570}
   - component: {fileID: 8185013034966836571}
   - component: {fileID: 1376954072}
+  - component: {fileID: 1563405067}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -81,7 +82,7 @@ MonoBehaviour:
   _jumpTimeSinceInput: 0
   _jumpInputBufferTime: 0.25
   _grounded: 0
-  _rigidbody: {fileID: 0}
+  rigidbody: {fileID: 0}
 --- !u!54 &1376954072
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -98,3 +99,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
+--- !u!114 &1563405067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185013034966836567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554f1a22ea9b73165adf700a6f0cc7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 987702946436969229, guid: bf9d74d2bef21c334b2259ff129154ae, type: 3}
+  fireFrom: {fileID: 0}
+  fireForce: 25000
