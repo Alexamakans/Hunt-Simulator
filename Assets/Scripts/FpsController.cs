@@ -82,8 +82,8 @@ public class FpsController : MonoBehaviour
 
     void Look()
     {
-        float mouseDeltaYaw = Input.GetAxisRaw("Mouse X");
-        float mouseDeltaPitch = Input.GetAxisRaw("Mouse Y");
+        var mouseDeltaYaw = Input.GetAxisRaw("Mouse X");
+        var mouseDeltaPitch = Input.GetAxisRaw("Mouse Y");
 
         _lookYaw += mouseDeltaYaw;
         _lookYaw = WrapAroundAngleDegrees(_lookYaw);
