@@ -52,11 +52,7 @@ public class FpsController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Move
-        Vector3 moveVector = GetMovementVector();
-        ApplyDirectionalSpeedMultipliers(ref moveVector);
-        Move(moveVector * Time.fixedDeltaTime);
-
+        MoveLogic();
         JumpLogic();
 
         UpdateGroundedState();
@@ -130,6 +126,13 @@ public class FpsController : MonoBehaviour
         }
     }
 
+    void MoveLogic()
+    {
+        Vector3 moveVector = GetMovementVector();
+        ApplyDirectionalSpeedMultipliers(ref moveVector);
+        Move(moveVector * Time.fixedDeltaTime);
+    }
+
     void JumpLogic()
     {
         if (_jumpInput && _grounded)
@@ -150,16 +153,6 @@ public class FpsController : MonoBehaviour
 
     float ClampPitch(float pitch)
     {
-        if (pitch < minimumPitch)
-        {
-            pitch = minimumPitch;
-        }
-
-        if (pitch > maximumPitch)
-        {
-            pitch = maximumPitch;
-        }
-
-        return pitch;
+        return Mathf.Clamp(pitch, minimumPitch, maximumPitch);
     }
 }
