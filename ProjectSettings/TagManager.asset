@@ -5,15 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerProjectile
+  - Ammunition
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Hands
-  - 
+  - Ignore Player
   - 
   - 
   - 
