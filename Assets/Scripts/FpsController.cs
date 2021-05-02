@@ -145,16 +145,7 @@ public class FpsController : MonoBehaviour
 
     float WrapAroundAngleDegrees(float angle)
     {
-        if (angle > 360.0f)
-        {
-            return angle - 360.0f;
-        }
-        else if (angle < -360.0f)
-        {
-            return angle + 360.0f;
-        }
-
-        return angle;
+        return (angle + 360) % 360;
     }
 
     float ClampPitch(float pitch)
