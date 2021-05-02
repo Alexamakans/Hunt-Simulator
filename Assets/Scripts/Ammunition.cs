@@ -36,7 +36,10 @@ public class Ammunition : MonoBehaviour
     public void OnShoot(GameObject impactParticles)
     {
         hand = null;
-        
+
+        _body.detectCollisions = true;
+        transform.localScale = originalScale;
+
         gameObject.AddComponent<DestroyAfterSeconds>().seconds = 5f;
 
         var destroyAfterImpact = gameObject.AddComponent<DestroyAfterImpact>();
