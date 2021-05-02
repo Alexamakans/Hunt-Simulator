@@ -9,19 +9,75 @@ public class FpsMovement : MonoBehaviour
     [Range(0.1f, 15.0f)]
     public float backSpeed = 0.6f;
 
+    public float jumpForce = 10.0f;
+
+    [SerializeField]
     private Vector2 _inputVector = Vector2.zero;
+    [SerializeField]
+    private bool _jumpInput = false;
+    [SerializeField]
+    private float _jumpTimeSinceInput = 0.0f;
+    [SerializeField]
+    private float _jumpInputBufferTime = 0.25f;
+
+    [SerializeField]
+    private bool _grounded = false;
+
+    [SerializeField]
+    private Rigidbody _rigidbody;
+
+    void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
     void Update()
     {
         _inputVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (_jumpTimeSinceInput >= _jumpInputBufferTime)
+        {
+            _jumpInput = Input.GetButtonDown("Jump");
+            if (_jumpInput)
+            {
+                _jumpTimeSinceInput = 0.0f;
+            }
+        }
+        else
+        {
+            _jumpTimeSinceInput += Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
     {
+        // Move
         Vector3 moveVector = GetMovementVector();
         ApplyDirectionalSpeedMultipliers(ref moveVector);
 
         Move(moveVector * Time.fixedDeltaTime);
+
+        // Jump
+        if (_jumpInput && _grounded)
+        {
+            _jumpInput = false;
+            _jumpTimeSinceInput = _jumpInputBufferTime;
+
+            Vector3 keepVelocities = Vector3.right + Vector3.forward;
+            _rigidbody.velocity = Vector3.Scale(_rigidbody.velocity, keepVelocities);
+            _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo))
+        {
+            if (_rigidbody.velocity.y < 0.01f && hitInfo.distance <= 2.0f / 2.0f)
+            {
+                _grounded = true;
+            }
+            else
+            {
+                _grounded = false;
+            }
+        }
     }
 
     private void ApplyDirectionalSpeedMultipliers(ref Vector3 vector)
