@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-using System.Linq;
 
 public class TakeDamageFromPlayerProjectile : MonoBehaviour
 {
@@ -12,10 +8,10 @@ public class TakeDamageFromPlayerProjectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(Tags.PLAYER_PROJECTILE))
         {
-            float force = collision.relativeVelocity.magnitude;
-            health -= force;
+            float damage = collision.relativeVelocity.magnitude;
+            health -= damage;
 
-            if (health <= 0.0f)
+            if (health <= 0)
             {
                 Destroy(gameObject);
             }
