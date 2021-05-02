@@ -8,20 +8,20 @@ public class FpsController : MonoBehaviour
 
     [Header("Camera Settings")]
     public Camera cam;
-    public float lookHorizontalSensitivity = 1.0f;
-    public float lookVerticalSensitivity = 1.0f;
+    public float lookHorizontalSensitivity = 1f;
+    public float lookVerticalSensitivity = 1f;
     public float minimumPitch = -89.9f;
     public float maximumPitch = 89.9f;
 
     [Header("Jump Settings")]
-    public float jumpForce = 300.0f;
+    public float jumpForce = 300f;
     public float jumpInputBufferTime = 0.25f;
 
     [Header("Movement Settings")]
-    [Range(0.1f, 15.0f)]
-    public float forwardSpeed = 5.0f;
-    [Range(0.1f, 15.0f)]
-    public float backSpeed = 3.0f;
+    [Range(0.1f, 15f)]
+    public float forwardSpeed = 5f;
+    [Range(0.1f, 15f)]
+    public float backSpeed = 3f;
 
     private Vector2 _inputVector = Vector2.zero;
     private bool _jumpInput = false;
@@ -109,6 +109,7 @@ public class FpsController : MonoBehaviour
         else
         {
             _jumpTimeSinceInput += Time.deltaTime;
+            _jumpTimeSinceInput = 0f;
         }
     }
 
@@ -128,8 +129,8 @@ public class FpsController : MonoBehaviour
 
     void MoveLogic()
     {
-        Vector3 moveVector = GetMovementVector();
         ApplyDirectionalSpeedMultipliers(ref moveVector);
+        var moveVector = transform.TransformVector(new Vector3(_inputVector.x, 0f, _inputVector.y));
         Move(moveVector * Time.fixedDeltaTime);
     }
 
@@ -148,7 +149,7 @@ public class FpsController : MonoBehaviour
 
     float WrapAroundAngleDegrees(float angle)
     {
-        return (angle + 360) % 360;
+        return (angle + 360f) % 360;
     }
 
     float ClampPitch(float pitch)
