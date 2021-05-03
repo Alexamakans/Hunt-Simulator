@@ -140,6 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b08b2f8308738846b24d1c30f0629ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  pickUpRange: 0
   hand: {fileID: 1615405954}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   projectileHitParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
@@ -1329,6 +1333,10 @@ PrefabInstance:
       propertyPath: pickupAmmunition
       value: 
       objectReference: {fileID: 272732039}
+    - target: {fileID: 6208200287240357101, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7809670592736867129, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
       propertyPath: m_Layer
       value: 3
