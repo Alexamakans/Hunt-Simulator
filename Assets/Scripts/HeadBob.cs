@@ -16,6 +16,7 @@ public class HeadBob : MonoBehaviour
 
     public float jumpBobIntensity = 0.25f;
 
+    [SerializeField, HideInInspector]
     private Vector3 _defaultLocalPosition;
     private float _timer;
     private void Awake()
