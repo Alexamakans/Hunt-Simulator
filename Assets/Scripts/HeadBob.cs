@@ -18,8 +18,6 @@ public class HeadBob : MonoBehaviour
 
     private Vector3 _defaultLocalPosition;
     private float _timer;
-
-
     private void Awake()
     {
         _defaultLocalPosition = transform.localPosition;
