@@ -5,11 +5,11 @@ public class PlayerShooting : MonoBehaviour
     public Transform fireFrom;
     public float fireForce = 1;
 
-    public PickupAmmunition pickupAmmunition;
+    public PlayerInventory pickupAmmunition;
 
     void Reset()
     {
-        pickupAmmunition = GetComponent<PickupAmmunition>();
+        pickupAmmunition = GetComponent<PlayerInventory>();
     }
 
     void Update()

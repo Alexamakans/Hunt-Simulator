@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PickupAmmunition : MonoBehaviour
+public class PlayerInventory : MonoBehaviour
 {
     public LayerMask ignoreLayers;
     public float pickUpRange;
