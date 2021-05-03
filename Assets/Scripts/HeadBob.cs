@@ -18,8 +18,6 @@ public class HeadBob : MonoBehaviour
 
     private Vector3 _defaultLocalPosition;
     private float _timer;
-
-
     private void Awake()
     {
         _defaultLocalPosition = transform.localPosition;
@@ -33,7 +31,7 @@ public class HeadBob : MonoBehaviour
 
         var planeVelocityMagnitude = planeVelocity.magnitude;
 
-        if (planeVelocityMagnitude > 0f || Mathf.Abs(velocity.y) > 0f)
+        if (!Mathf.Approximately(planeVelocityMagnitude, 0f) || !Mathf.Approximately(Mathf.Abs(velocity.y), 0f))
         {
             _timer += Time.deltaTime * planeVelocityMagnitude * bobbingSpeed;
             transform.localPosition = new Vector3(
