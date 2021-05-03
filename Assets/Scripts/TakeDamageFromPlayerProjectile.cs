@@ -1,20 +1,20 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
 public class TakeDamageFromPlayerProjectile : MonoBehaviour
 {
-    public int health = 25;
+    public Health health;
+
+    void Reset()
+    {
+        health = GetComponent<Health>();
+    }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag(Tags.PLAYER_PROJECTILE))
         {
-            var damage = Mathf.CeilToInt(collision.relativeVelocity.magnitude);
-            health -= damage;
-
-            if (health <= 0)
-            {
-                Destroy(gameObject);
-            }
+            health.Damage(Mathf.CeilToInt(collision.relativeVelocity.magnitude));
         }
     }
 }
