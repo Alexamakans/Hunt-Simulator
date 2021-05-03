@@ -36,6 +36,7 @@ public class Ammunition : MonoBehaviour
     public void OnShoot(GameObject impactParticles)
     {
         hand = null;
+        tag = Tags.PLAYER_PROJECTILE;
 
         _body.detectCollisions = true;
         transform.localScale = originalScale;
