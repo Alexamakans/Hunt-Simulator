@@ -7,7 +7,7 @@ public class FpsController : MonoBehaviour
     public Rigidbody body;
 
     [Header("Camera Settings")]
-    public GameObject cam;
+    public GameObject cameraHandle;
     public float lookHorizontalSensitivity = 1f;
     public float lookVerticalSensitivity = 1f;
     public float minimumPitch = -89.9f;
@@ -43,7 +43,7 @@ public class FpsController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         _lookYaw = transform.eulerAngles.y;
-        _lookPitch = cam.transform.eulerAngles.x;
+        _lookPitch = cameraHandle.transform.eulerAngles.x;
         _jumpTimeSinceInput = jumpInputBufferTime;
         _prevPosition = transform.position;
     }
@@ -85,7 +85,7 @@ public class FpsController : MonoBehaviour
 
         _lookPitch -= mouseDeltaPitch;
         _lookPitch = ClampPitch(_lookPitch);
-        cam.transform.rotation = Quaternion.Euler(_lookPitch, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
+        cameraHandle.transform.rotation = Quaternion.Euler(_lookPitch, cameraHandle.transform.eulerAngles.y, cameraHandle.transform.eulerAngles.z);
     }
 
     void MovementInput()
