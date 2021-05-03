@@ -7,7 +7,7 @@ public class FpsController : MonoBehaviour
     public Rigidbody body;
 
     [Header("Camera Settings")]
-    public Camera cam;
+    public GameObject cam;
     public float lookHorizontalSensitivity = 1f;
     public float lookVerticalSensitivity = 1f;
     public float minimumPitch = -89.9f;
@@ -22,6 +22,9 @@ public class FpsController : MonoBehaviour
     public float forwardSpeed = 5f;
     [Range(0.1f, 15f)]
     public float backSpeed = 3f;
+    public Vector3 velocity { get { return _prevPosition - transform.position; } }
+
+    private Vector3 _prevPosition;
 
     private Vector2 _inputVector = Vector2.zero;
     private bool isJumpQueued => _jumpTimeSinceInput < jumpInputBufferTime;
@@ -34,7 +37,6 @@ public class FpsController : MonoBehaviour
     void Reset()
     {
         body = GetComponent<Rigidbody>();
-        cam = GetComponentInChildren<Camera>();
     }
 
     void Start()
@@ -43,6 +45,7 @@ public class FpsController : MonoBehaviour
         _lookYaw = transform.eulerAngles.y;
         _lookPitch = cam.transform.eulerAngles.x;
         _jumpTimeSinceInput = jumpInputBufferTime;
+        _prevPosition = transform.position;
     }
 
     void Update()
@@ -62,6 +65,8 @@ public class FpsController : MonoBehaviour
         }
 
         UpdateGroundedState();
+
+        _prevPosition = transform.position;
     }
 
     void Move(Vector3 displacement)
