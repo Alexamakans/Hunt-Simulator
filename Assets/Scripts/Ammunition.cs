@@ -4,6 +4,7 @@ public class Ammunition : MonoBehaviour
 {
     public Rigidbody body;
     public Vector3 inHandSize = new Vector3(0.2f, 0.2f, 0.2f);
+    public bool canBePickedUp;
 
     private Vector3 _originalScale;
     private int _originalLayer;
