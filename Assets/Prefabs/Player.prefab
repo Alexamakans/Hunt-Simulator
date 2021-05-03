@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 521055739}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FireFrom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2058009101705918331}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Left Hand Hold Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4740459855075157369}
   - component: {fileID: 3247800110818866381}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hand Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 7931538607781627904}
   - component: {fileID: 7931538607781627907}
   - component: {fileID: 7931538607781627906}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Right Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 7931538607920979913}
   - component: {fileID: 7931538607920979912}
   - component: {fileID: 7931538607920979895}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 7931538608639295885}
   - component: {fileID: 7931538608639295884}
   - component: {fileID: 7931538608639295883}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Left Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,8 @@ GameObject:
   - component: {fileID: 1376954072}
   - component: {fileID: 1563405067}
   - component: {fileID: 1615405957}
-  m_Layer: 0
+  - component: {fileID: 272732039}
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,9 +464,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554f1a22ea9b73165adf700a6f0cc7ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 987702946436969229, guid: bf9d74d2bef21c334b2259ff129154ae, type: 3}
   fireFrom: {fileID: 521055739}
-  fireForce: 25000
+  fireForce: 2500
+  pickupAmmunition: {fileID: 272732039}
 --- !u!114 &1615405957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,3 +489,23 @@ MonoBehaviour:
   jumpInputBufferTime: 0.25
   forwardSpeed: 5
   backSpeed: 3
+--- !u!114 &272732039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185013034966836567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b08b2f8308738846b24d1c30f0629ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  pickUpRange: 2
+  hand: {fileID: 2058009101705918331}
+  inHandSize: {x: 0.2, y: 0.2, z: 0.2}
+  projectileHitParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
+  ammunition: {fileID: 0}
