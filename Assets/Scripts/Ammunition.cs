@@ -6,7 +6,8 @@ public class Ammunition : MonoBehaviour
     public Rigidbody body;
     public Vector3 inHandSize = new Vector3(0.2f, 0.2f, 0.2f);
     public bool canBePickedUp;
-    public LayerMask ignorePlayerLayer = 1 << 7;
+    [SingleLayer]
+    public int ignorePlayerLayer = 7;
 
     private Vector3 _originalScale;
     private int _originalLayer;
@@ -18,7 +19,7 @@ public class Ammunition : MonoBehaviour
 
     public void PickUp()
     {
-        if (!canBePickedUp)
+        if (canBePickedUp)
         {
             _originalScale = transform.localScale;
             _originalLayer = gameObject.layer;
@@ -34,6 +35,7 @@ public class Ammunition : MonoBehaviour
 
     public void OnShoot(GameObject impactParticles)
     {
+        tag = Tags.PLAYER_PROJECTILE;
         canBePickedUp = false;
 
         body.detectCollisions = true;
