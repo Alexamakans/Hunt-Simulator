@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Ammunition : MonoBehaviour
 {
     public Rigidbody body;
