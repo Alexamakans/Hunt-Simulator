@@ -22,7 +22,7 @@ public class FpsController : MonoBehaviour
     public float forwardSpeed = 5f;
     [Range(0.1f, 15f)]
     public float backSpeed = 3f;
-    public Vector3 velocity { get { return _prevPosition - transform.position; } }
+    public Vector3 velocity => _prevPosition - transform.position;
 
     private Vector3 _prevPosition;
 
