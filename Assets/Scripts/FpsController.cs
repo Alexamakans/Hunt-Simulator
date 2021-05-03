@@ -16,6 +16,7 @@ public class FpsController : MonoBehaviour
     [Header("Jump Settings")]
     public float jumpForce = 300f;
     public float jumpInputBufferTime = 0.25f;
+    public LayerMask groundLayer = 1;
 
     [Header("Movement Settings")]
     [Range(0.1f, 15f)]
@@ -100,14 +101,7 @@ public class FpsController : MonoBehaviour
 
     void UpdateGroundedState()
     {
-        if (body.velocity.y < 0.01f && Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo))
-        {
-            _isGrounded = true;
-        }
-        else
-        {
-            _isGrounded = false;
-        }
+        _isGrounded = body.velocity.y < 0.01f && Physics.Raycast(transform.position, Vector3.down, groundLayer);
     }
 
     void Walk()
