@@ -6,6 +6,5 @@ public static class Layers
     public const string PLAYER = "Player";
     public const string WATER = "Water";
     public const string UI = "UI";
-    public const string HANDS = "Hands";
     public const string IGNORE_PLAYER = "Ignore Player";
 }

@@ -6,6 +6,7 @@ public class Ammunition : MonoBehaviour
     public Rigidbody body;
     public Vector3 inHandSize = new Vector3(0.2f, 0.2f, 0.2f);
     public bool canBePickedUp;
+    public LayerMask ignorePlayerLayer = 1 << 7;
 
     private Vector3 _originalScale;
     private int _originalLayer;
@@ -17,19 +18,24 @@ public class Ammunition : MonoBehaviour
 
     public void PickUp()
     {
-        _originalScale = transform.localScale;
+        if (!canBePickedUp)
+        {
+            _originalScale = transform.localScale;
+            _originalLayer = gameObject.layer;
+            
+            gameObject.layer = ignorePlayerLayer;
+            
+            body.detectCollisions = false;
 
-        var size = GetComponent<MeshFilter>().mesh.bounds.size;
-        transform.localScale = new Vector3(inHandSize.x / size.x, inHandSize.y / size.y, inHandSize.z / size.z);
-
-        body.detectCollisions = false;
-
-        _originalLayer = gameObject.layer;
-        gameObject.layer = LayerMask.NameToLayer("Ignore Player");
+            var size = GetComponent<MeshFilter>().mesh.bounds.size;
+            transform.localScale = new Vector3(inHandSize.x / size.x, inHandSize.y / size.y, inHandSize.z / size.z);
+        }
     }
 
     public void OnShoot(GameObject impactParticles)
     {
+        canBePickedUp = false;
+
         body.detectCollisions = true;
         transform.localScale = _originalScale;
 

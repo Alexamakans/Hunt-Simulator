@@ -9,14 +9,21 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IDeathListener
 {
     public Material deadMaterial;
+    public Ammunition ammunition;
+
+    void Reset()
+    {
+        ammunition = GetComponent<Ammunition>();
+    }
 
     public void OnDeath()
     {
-        tag = Tags.AMMUNITION;
         GetComponent<MeshRenderer>().material = deadMaterial;
 
         Destroy(this);
         Destroy(GetComponent<TakeDamageFromPlayerProjectile>());
         Destroy(GetComponent<Health>());
+
+        ammunition.canBePickedUp = true;
     }
 }
