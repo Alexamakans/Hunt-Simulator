@@ -15,11 +15,9 @@ public class PickupAmmunition : MonoBehaviour
             && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out var hitInfo, 2f, LayerMask.NameToLayer("Player")))
         {
             var collider = hitInfo.collider;
-            if (collider.CompareTag(Tags.AMMUNITION)
-                && !collider.GetComponent<Ammunition>())
+            ammunition = collider.GetComponent<Ammunition>();
+            if (ammunition)
             {
-                var go = collider.gameObject;
-                ammunition = go.AddComponent<Ammunition>();
                 ammunition.hand = hand;
                 ammunition.inHandSize = inHandSize;
             }
