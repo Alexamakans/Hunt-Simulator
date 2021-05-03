@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeadBob : MonoBehaviour
+public class PlayerCameraBob : MonoBehaviour
 {
     public FpsController fpsController;
 
