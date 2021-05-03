@@ -11,18 +11,22 @@ public class PickupAmmunition : MonoBehaviour
 
     void Update()
     {
-        if (!ammunition
-            && Input.GetButtonDown("Fire2")
-            && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),
-                               out var hitInfo,
-                               pickUpRange,
-                               ignoreLayers))
+        if (ammunition)
+        {
+            ammunition.transform.position = hand.position;
+            ammunition.body.velocity = Vector3.zero;
+        }
+        else if (Input.GetButtonDown("Fire2")
+                && Physics.Raycast(
+                    Camera.main.ScreenPointToRay(Input.mousePosition),
+                    out var hitInfo,
+                    pickUpRange,
+                    ignoreLayers))
         {
             var collider = hitInfo.collider;
             ammunition = collider.GetComponent<Ammunition>();
             if (ammunition)
             {
-                ammunition.hand = hand;
                 ammunition.inHandSize = inHandSize;
             }
         }

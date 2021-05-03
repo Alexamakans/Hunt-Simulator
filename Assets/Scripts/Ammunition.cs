@@ -3,7 +3,6 @@ using UnityEngine;
 public class Ammunition : MonoBehaviour
 {
     public Rigidbody body;
-    public Transform hand;
     public Vector3 inHandSize = new Vector3(0.2f, 0.2f, 0.2f);
 
     private Vector3 _originalScale;
@@ -27,19 +26,8 @@ public class Ammunition : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Ignore Player");
     }
 
-    void Update()
-    {
-        if (hand)
-        {
-            transform.position = hand.position;
-            body.velocity = Vector3.zero;
-        }
-    }
-
     public void OnShoot(GameObject impactParticles)
     {
-        hand = null;
-
         body.detectCollisions = true;
         transform.localScale = _originalScale;
 
