@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(
-    typeof(TakeDamageFromPlayerProjectile),
     typeof(Rigidbody)
 )]
 public class Enemy : MonoBehaviour, IDeathListener
@@ -20,9 +19,9 @@ public class Enemy : MonoBehaviour, IDeathListener
     {
         GetComponent<MeshRenderer>().material = deadMaterial;
 
-        Destroy(this);
         Destroy(GetComponent<TakeDamageFromPlayerProjectile>());
         Destroy(GetComponent<Health>());
+        Destroy(this);
 
         ammunition.canBePickedUp = true;
     }
