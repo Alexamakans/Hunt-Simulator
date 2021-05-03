@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public LayerMask ignoreLayers;
-    public float pickUpRange;
+    public LayerMask ignoreLayers = 1 << 4;
+    public float pickUpRange = 2f;
     public Transform hand;
     public Vector3 inHandSize = new Vector3(0.2f, 0.2f, 0.2f);
     public GameObject projectileHitParticles;
@@ -21,13 +21,21 @@ public class PlayerInventory : MonoBehaviour
                     Camera.main.ScreenPointToRay(Input.mousePosition),
                     out var hitInfo,
                     pickUpRange,
-                    ignoreLayers))
+                    ~ignoreLayers))
         {
             var collider = hitInfo.collider;
             ammunition = collider.GetComponent<Ammunition>();
             if (ammunition)
             {
-                ammunition.inHandSize = inHandSize;
+                if (ammunition.canBePickedUp)
+                {
+                    ammunition.inHandSize = inHandSize;
+                    ammunition.PickUp();
+                }
+                else
+                {
+                    ammunition = null;
+                }
             }
         }
     }
