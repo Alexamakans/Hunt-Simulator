@@ -5,14 +5,14 @@ public class Ammunition : MonoBehaviour
     public Transform hand;
     public Vector3 inHandSize = new Vector3(0.2f, 0.2f, 0.2f);
 
-    public Vector3 originalScale;
+    private Vector3 _originalScale;
 
     private int _originalLayer;
     private Rigidbody _body;
 
     void Start()
     {
-        originalScale = transform.localScale;
+        _originalScale = transform.localScale;
 
         var size = GetComponent<MeshFilter>().mesh.bounds.size;
         transform.localScale = new Vector3(inHandSize.x / size.x, inHandSize.y / size.y, inHandSize.z / size.z);
@@ -38,7 +38,7 @@ public class Ammunition : MonoBehaviour
         hand = null;
 
         _body.detectCollisions = true;
-        transform.localScale = originalScale;
+        transform.localScale = _originalScale;
 
         gameObject.AddComponent<DestroyAfterSeconds>().seconds = 5f;
 
