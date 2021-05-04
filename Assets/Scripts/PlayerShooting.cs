@@ -34,6 +34,11 @@ public class PlayerShooting : MonoBehaviour
         }
 
         var ammoBody = pickupAmmunition.ammunition.body;
+        if (!ammoBody)
+        {
+            Debug.LogWarning("Projectile does not have a Rigidbody.");
+            return;
+        }
         ammoBody.transform.SetPositionAndRotation(fireFrom.position, fireFrom.rotation);
         ammoBody.AddForce(fireFrom.forward * fireForce);
         pickupAmmunition.OnShoot();
