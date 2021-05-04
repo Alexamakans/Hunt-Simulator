@@ -350,6 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 520719579}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 0
   ignorePlayerLayer: 7
@@ -524,6 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 564548616}
+  impactParticles: {fileID: 0}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 0
   ignorePlayerLayer: 7
@@ -540,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 564548616}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 0
   ignorePlayerLayer: 7
@@ -713,6 +716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 626433383}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 0
   ignorePlayerLayer: 7
@@ -936,6 +940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 843197633}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 1
   ignorePlayerLayer: 7
@@ -1066,6 +1071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1217212644}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 1
   ignorePlayerLayer: 7
@@ -1198,7 +1204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa6e92b5d0ecac46b1b76f9abeed8f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 1269210183}
+  health: {fileID: 0}
 --- !u!114 &1269210183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,9 +1245,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1269210181}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 0
-  ignorePlayerLayer: 128
+  ignorePlayerLayer: 7
 --- !u!1 &1323861147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,6 +1419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1323861152}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 0
   ignorePlayerLayer: 7
@@ -1585,6 +1593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1366294863}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 0
   ignorePlayerLayer: 7
@@ -1758,6 +1767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1431760897}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 0
   ignorePlayerLayer: 7
@@ -1931,6 +1941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1530352079}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 0
   ignorePlayerLayer: 7
@@ -2061,66 +2072,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1598443809}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 1
   ignorePlayerLayer: 7
---- !u!1001 &1615405953
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.718
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185013034966836567, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
 --- !u!1 &1858683020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,6 +2246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1858683025}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 0
   ignorePlayerLayer: 7
@@ -2464,6 +2420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1868750102}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 0
   ignorePlayerLayer: 7
@@ -2594,6 +2551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1893218930}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 1
   ignorePlayerLayer: 7
@@ -2767,9 +2725,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1974501116}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 0
   ignorePlayerLayer: 7
+--- !u!1001 &1985342798
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.77500004
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185013034966836564, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185013034966836567, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3dc3ef5bd442ede489a5c477f224babd, type: 3}
 --- !u!1 &2075920067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2897,6 +2913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 2075920072}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 1
   ignorePlayerLayer: 7
@@ -3070,6 +3087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 2104795910}
+  impactParticles: {fileID: 6713161096364930950, guid: c5df0d3a426b2f271aecc03ec6beea0b, type: 3}
   inHandSize: {x: 0.2, y: 0.2, z: 0.2}
   canBePickedUp: 0
   ignorePlayerLayer: 7
