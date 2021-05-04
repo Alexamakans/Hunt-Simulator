@@ -47,6 +47,5 @@ public class Ammunition : MonoBehaviour
     void UnignorePlayer()
     {
         gameObject.layer = _originalLayer;
-        Destroy(this);
     }
 }
