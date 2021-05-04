@@ -39,8 +39,10 @@ public class PlayerShooting : MonoBehaviour
             Debug.LogWarning("Projectile does not have a Rigidbody.");
             return;
         }
+
+        playerInventory.OnShoot();
+
         ammoBody.transform.SetPositionAndRotation(fireFrom.position, fireFrom.rotation);
         ammoBody.AddForce(fireFrom.forward * fireForce);
-        playerInventory.OnShoot();
     }
 }
