@@ -5,11 +5,11 @@ public class PlayerShooting : MonoBehaviour
     public Transform fireFrom;
     public float fireForce = 1;
 
-    public PlayerInventory pickupAmmunition;
+    public PlayerInventory playerInventory;
 
     void Reset()
     {
-        pickupAmmunition = GetComponent<PlayerInventory>();
+        playerInventory = GetComponent<PlayerInventory>();
     }
 
     void Update()
@@ -28,12 +28,12 @@ public class PlayerShooting : MonoBehaviour
             return;
         }
 
-        if (!pickupAmmunition.ammunition)
+        if (!playerInventory.ammunition)
         {
             return;
         }
 
-        var ammoBody = pickupAmmunition.ammunition.body;
+        var ammoBody = playerInventory.ammunition.body;
         if (!ammoBody)
         {
             Debug.LogWarning("Projectile does not have a Rigidbody.");
@@ -41,6 +41,6 @@ public class PlayerShooting : MonoBehaviour
         }
         ammoBody.transform.SetPositionAndRotation(fireFrom.position, fireFrom.rotation);
         ammoBody.AddForce(fireFrom.forward * fireForce);
-        pickupAmmunition.OnShoot();
+        playerInventory.OnShoot();
     }
 }
