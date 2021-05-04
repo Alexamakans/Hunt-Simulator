@@ -3,6 +3,7 @@ using UnityEngine;
 public class Ammunition : MonoBehaviour
 {
     public Rigidbody body;
+    public GameObject impactParticles;
     public Vector3 inHandSize = new Vector3(0.2f, 0.2f, 0.2f);
     public bool canBePickedUp;
 
@@ -28,7 +29,7 @@ public class Ammunition : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Ignore Player");
     }
 
-    public void OnShoot(GameObject impactParticles)
+    public void OnShoot()
     {
         body.detectCollisions = true;
         body.isKinematic = false;

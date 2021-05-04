@@ -6,7 +6,6 @@ public class PlayerInventory : MonoBehaviour
     public float pickUpRange;
     public Transform hand;
     public Vector3 inHandSize = new Vector3(0.2f, 0.2f, 0.2f);
-    public GameObject projectileHitParticles;
     public Ammunition ammunition;
 
     void Update()
@@ -33,7 +32,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void OnShoot()
     {
-        ammunition.OnShoot(projectileHitParticles);
+        ammunition.OnShoot();
         ammunition = null;
     }
 }
