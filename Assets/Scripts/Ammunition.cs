@@ -22,6 +22,7 @@ public class Ammunition : MonoBehaviour
         transform.localScale = new Vector3(inHandSize.x / size.x, inHandSize.y / size.y, inHandSize.z / size.z);
 
         body.detectCollisions = false;
+        body.isKinematic = true;
 
         _originalLayer = gameObject.layer;
         gameObject.layer = LayerMask.NameToLayer("Ignore Player");
@@ -30,6 +31,7 @@ public class Ammunition : MonoBehaviour
     public void OnShoot(GameObject impactParticles)
     {
         body.detectCollisions = true;
+        body.isKinematic = false;
         transform.localScale = _originalScale;
 
         gameObject.AddComponent<DestroyAfterSeconds>().seconds = 5f;

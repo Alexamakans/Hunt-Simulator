@@ -14,7 +14,6 @@ public class PlayerInventory : MonoBehaviour
         if (ammunition)
         {
             ammunition.transform.position = hand.position;
-            ammunition.body.velocity = Vector3.zero;
         }
         else if (Input.GetButtonDown("Fire2")
                 && Physics.Raycast(
