@@ -6,7 +6,6 @@ public class PlayerInventory : MonoBehaviour
     public float pickUpRange = 2f;
     public Transform hand;
     public Vector3 inHandSize = new Vector3(0.2f, 0.2f, 0.2f);
-    public GameObject projectileHitParticles;
     public Ammunition ammunition;
 
     void Update()
@@ -14,7 +13,6 @@ public class PlayerInventory : MonoBehaviour
         if (ammunition)
         {
             ammunition.transform.position = hand.position;
-            ammunition.body.velocity = Vector3.zero;
         }
         else if (Input.GetButtonDown("Fire2")
                 && Physics.Raycast(
@@ -42,7 +40,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void OnShoot()
     {
-        ammunition.OnShoot(projectileHitParticles);
+        ammunition.OnShoot();
         ammunition = null;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class Ammunition : MonoBehaviour
 {
     public Rigidbody body;
+    public GameObject impactParticles;
     public Vector3 inHandSize = new Vector3(0.2f, 0.2f, 0.2f);
     public bool canBePickedUp;
     [SingleLayer]
@@ -27,18 +28,20 @@ public class Ammunition : MonoBehaviour
             gameObject.layer = ignorePlayerLayer;
             
             body.detectCollisions = false;
+            body.isKinematic = true;
 
             var size = GetComponent<MeshFilter>().mesh.bounds.size;
             transform.localScale = new Vector3(inHandSize.x / size.x, inHandSize.y / size.y, inHandSize.z / size.z);
         }
     }
 
-    public void OnShoot(GameObject impactParticles)
+    public void OnShoot()
     {
         tag = Tags.PLAYER_PROJECTILE;
         canBePickedUp = false;
 
         body.detectCollisions = true;
+        body.isKinematic = false;
         transform.localScale = _originalScale;
 
         gameObject.AddComponent<DestroyAfterSeconds>().seconds = 5f;
@@ -53,6 +56,5 @@ public class Ammunition : MonoBehaviour
     void UnignorePlayer()
     {
         gameObject.layer = _originalLayer;
-        Destroy(this);
     }
 }
