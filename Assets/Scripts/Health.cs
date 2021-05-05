@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Linq;
 
 [RequireComponent(typeof(IDeathListener))]
 public class Health : MonoBehaviour

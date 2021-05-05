@@ -6,7 +6,7 @@ public class Ammunition : MonoBehaviour
     public GameObject impactParticles;
     public Vector3 inHandSize = new Vector3(0.2f, 0.2f, 0.2f);
     public bool canBePickedUp;
-    [SingleLayer]
+    [SingleLayerAttribute]
     public int ignorePlayerLayer = 7;
 
     private Vector3 _originalScale;
