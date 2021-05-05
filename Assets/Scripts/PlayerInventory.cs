@@ -21,19 +21,12 @@ public class PlayerInventory : MonoBehaviour
                     pickUpRange,
                     ~ignoreLayers))
         {
-            var collider = hitInfo.collider;
-            ammunition = collider.GetComponent<Ammunition>();
-            if (ammunition)
+            var collidedAmmo = hitInfo.collider.GetComponent<Ammunition>();
+            if (collidedAmmo && collidedAmmo.canBePickedUp)
             {
-                if (ammunition.canBePickedUp)
-                {
-                    ammunition.inHandSize = inHandSize;
-                    ammunition.PickUp();
-                }
-                else
-                {
-                    ammunition = null;
-                }
+                ammunition = collidedAmmo;
+                ammunition.inHandSize = inHandSize;
+                ammunition.PickUp();
             }
         }
     }
