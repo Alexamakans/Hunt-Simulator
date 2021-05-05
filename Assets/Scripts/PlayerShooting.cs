@@ -2,9 +2,15 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    public GameObject projectilePrefab;
     public Transform fireFrom;
     public float fireForce = 1;
+
+    public PlayerInventory playerInventory;
+
+    void Reset()
+    {
+        playerInventory = GetComponent<PlayerInventory>();
+    }
 
     void Update()
     {
@@ -16,28 +22,25 @@ public class PlayerShooting : MonoBehaviour
 
     void FireProjectile()
     {
-        if (!projectilePrefab)
-        {
-            Debug.LogWarning($"Cannot fire projectile: {nameof(projectilePrefab)} is unset.", this);
-            return;
-        }
-
         if (!fireFrom)
         {
             Debug.LogWarning($"Cannot fire projectile: {nameof(fireFrom)} is unset.", this);
             return;
         }
 
-        var clone = Instantiate(projectilePrefab, fireFrom.position, fireFrom.rotation);
-        var body = clone.GetComponentInChildren<Rigidbody>();
+        if (!playerInventory.ammunition)
+        {
+            return;
+        }
 
-        if (!body)
+        var ammoBody = playerInventory.ammunition.body;
+        if (!ammoBody)
         {
-            Debug.LogWarning("Projectile prefab does not have a RigidBody.", this);
+            Debug.LogWarning("Projectile does not have a Rigidbody.");
+            return;
         }
-        else
-        {
-            body.AddForce(fireFrom.forward * fireForce);
-        }
+        ammoBody.transform.SetPositionAndRotation(fireFrom.position, fireFrom.rotation);
+        ammoBody.AddForce(fireFrom.forward * fireForce);
+        playerInventory.OnShoot();
     }
 }
