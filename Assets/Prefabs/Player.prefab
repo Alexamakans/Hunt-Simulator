@@ -487,7 +487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireFrom: {fileID: 521055739}
   fireForce: 2500
-  playerInventory: {fileID: 0}
+  playerInventory: {fileID: 1985342800}
 --- !u!114 &1615405957
 MonoBehaviour:
   m_ObjectHideFlags: 0
