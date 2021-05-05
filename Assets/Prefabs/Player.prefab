@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 1563405067}
   - component: {fileID: 1615405957}
   - component: {fileID: 701837229328809320}
+  - component: {fileID: 1985342800}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -529,6 +530,25 @@ MonoBehaviour:
   resetRandomRegionSize: {x: 80, y: 0, z: 80}
   body: {fileID: 1376954072}
   visual: {fileID: 4826694242708263184}
+--- !u!114 &1985342800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185013034966836567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b08b2f8308738846b24d1c30f0629ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  pickUpRange: 2
+  hand: {fileID: 2058009101705918331}
+  inHandSize: {x: 0.2, y: 0.2, z: 0.2}
+  ammunition: {fileID: 0}
 --- !u!1 &8765262887637221647
 GameObject:
   m_ObjectHideFlags: 0
