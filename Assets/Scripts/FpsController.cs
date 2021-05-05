@@ -14,7 +14,7 @@ public class FpsController : MonoBehaviour
     [Header("Jump Settings")]
     public float jumpForce = 300f;
     public float jumpInputBufferTime = 0.25f;
-    public LayerMask groundLayer = 1;
+    public LayerMask groundLayerMask = 1;
 
     [Header("Movement Settings")]
     [Range(0.1f, 15f)]
