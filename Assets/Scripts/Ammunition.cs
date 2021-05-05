@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Ammunition : MonoBehaviour
 {
@@ -29,8 +30,32 @@ public class Ammunition : MonoBehaviour
             body.detectCollisions = false;
             body.isKinematic = true;
 
-            var size = GetComponent<MeshFilter>().mesh.bounds.size;
-            transform.localScale = new Vector3(inHandSize.x / size.x, inHandSize.y / size.y, inHandSize.z / size.z);
+            var meshRenderers = new List<MeshRenderer>();
+            GetComponentsInChildren(meshRenderers);
+
+            var meshRendererCount = meshRenderers.Count;
+            if (meshRendererCount > 0)
+            {
+                var bounds = meshRenderers[0].bounds;
+                for (var i = 1; i < meshRendererCount; ++i)
+                {
+                    bounds.Encapsulate(meshRenderers[i].bounds);
+                }
+
+                var size = bounds.size;
+                var handSizeRatio = new Vector3(
+                    inHandSize.x / size.x,
+                    inHandSize.y / size.y,
+                    inHandSize.z / size.z
+                );
+
+                transform.localScale = Vector3.Scale(transform.localScale, handSizeRatio);
+            }
+            else
+            {
+                Debug.LogWarning("Was unable to resize object to fit hand; MeshRenderer is missing.");
+                return;
+            }
         }
     }
 
