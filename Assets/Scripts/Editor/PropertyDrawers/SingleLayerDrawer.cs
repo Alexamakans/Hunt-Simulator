@@ -35,7 +35,9 @@ public class SingleLayerDrawer : PropertyDrawer
             layerNames[i] = LayerMask.LayerToName(layers[i]);
 
             if (layers[i] == currentLayer)
+            {
                 currentIndex = i;
+            }
         }
 
         // Draw
