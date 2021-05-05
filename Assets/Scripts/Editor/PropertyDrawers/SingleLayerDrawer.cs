@@ -4,8 +4,6 @@ using UnityEditor;
 [CustomPropertyDrawer(typeof(SingleLayer))]
 public class SingleLayerDrawer : PropertyDrawer
 {
-
-
     // Draw the int as a list popup
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
