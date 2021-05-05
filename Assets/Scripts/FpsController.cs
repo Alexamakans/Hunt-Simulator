@@ -104,7 +104,7 @@ public class FpsController : MonoBehaviour
 
     void UpdateGroundedState()
     {
-        _isGrounded = body.velocity.y < 0.01f && Physics.Raycast(transform.position, Vector3.down, groundLayer);
+        _isGrounded = body.velocity.y < 0.01f && Physics.Raycast(transform.position, Vector3.down, groundLayerMask);
     }
 
     void Walk()
